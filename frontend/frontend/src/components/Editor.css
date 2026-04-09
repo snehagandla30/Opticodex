@@ -1,0 +1,195 @@
+.editor-container {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 25px;
+  gap: 20px;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.editor-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.editor-container input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e1e8ed;
+  border-radius: 15px;
+  font-size: 16px;
+  background: white;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.editor-container input[type="text"]:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+}
+
+.editor-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.editor-buttons button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  font-family: inherit;
+}
+
+.editor-buttons button:nth-child(1) { 
+  background: linear-gradient(45deg, #27ae60, #2ecc71); 
+  color: white; 
+}
+.editor-buttons button:nth-child(2) { 
+  background: linear-gradient(45deg, #9b59b6, #8e44ad); 
+  color: white; 
+}
+.editor-buttons button:nth-child(3) { 
+  background: linear-gradient(45deg, #f39c12, #e67e22); 
+  color: white; 
+}
+.editor-buttons button:nth-child(4) { 
+  background: linear-gradient(45deg, #27ae60, #2ecc71); 
+  color: white; 
+}
+
+.editor-buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.output-box, .score-box, .issues-box, .suggestions-box, .suggested-code-box {
+  padding: 25px;
+  border-radius: 20px;
+  margin: 15px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.output-box {
+  background: white;
+  border-left: 6px solid #3498db;
+}
+
+.output-box h3 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.output-box pre {
+  margin: 0;
+  font-family: 'Monaco', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #3498db;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.score-box {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  border: 3px solid #f39c12;
+  text-align: center;
+}
+
+.score-box h3 {
+  margin: 0 0 10px 0;
+  font-size: 28px;
+  color: #2c3e50;
+}
+
+.score-box .perfect {
+  color: #27ae60;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.issues-box {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  border-left: 6px solid #e74c3c;
+}
+
+.issues-box h3 {
+  margin: 0 0 15px 0;
+  color: #c0392b;
+  font-size: 20px;
+}
+
+.issues-box p {
+  margin: 10px 0;
+  color: #7f1d1d;
+  font-size: 16px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 8px;
+  border-left: 4px solid #e74c3c;
+}
+
+.suggestions-box {
+  background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+  border-left: 6px solid #3498db;
+}
+
+.suggestions-box h3 {
+  margin: 0 0 15px 0;
+  color: #21618c;
+  font-size: 20px;
+}
+
+.suggested-code-box {
+  background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+  border-left: 6px solid #27ae60;
+}
+
+.suggested-code-box h3 {
+  margin: 0 0 15px 0;
+  color: #1b5e20;
+  font-size: 20px;
+}
+
+.suggested-code-box pre {
+  margin: 0;
+  font-family: 'Monaco', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #a5d6a7;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}

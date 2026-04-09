@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Backend Test</title>
+</head>
+<body>
+
+<h2>Test Opticodex Backend</h2>
+
+<textarea id="code" rows="10" cols="50">
+print("Hello World")
+</textarea>
+<br><br>
+
+<button onclick="sendCode()">Run Code</button>
+
+<pre id="result"></pre>
+
+<script>
+function sendCode() {
+  const code = document.getElementById("code").value;
+
+  fetch("http://127.0.0.1:5000/analyze", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ code: code })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("result").textContent =
+      JSON.stringify(data, null, 2);
+  })
+  .catch(err => {
+    document.getElementById("result").textContent = err;
+  });
+}
+</script>
+
+</body>
+</html>

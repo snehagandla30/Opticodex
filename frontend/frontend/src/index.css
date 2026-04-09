@@ -1,0 +1,51 @@
+/* Nude/Cute Theme */
+:root {
+  --bg-primary: #f8f4f0;      /* warm beige */
+  --bg-secondary: #fff7f0;    /* soft peach */
+  --accent: #f9d5e0;          /* blush pink */
+  --success: #e8f5e8;         /* mint green */
+  --warning: #fef3c7;         /* soft yellow */
+  --danger: #fee2e2;          /* light coral */
+  --text-primary: #4a4a4a;    /* warm gray */
+  --text-secondary: #6b7280;  /* soft gray */
+  --border: #e5e7eb;          /* light gray */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(45deg, #ff9aa2, #ffb7b2);
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(255,154,162,0.4);
+}
+
+/* Input fields */
+input {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+}
+
+/* Center forms */
+form {
+  background: #fff7f0;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}

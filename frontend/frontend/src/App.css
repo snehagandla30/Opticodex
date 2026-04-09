@@ -1,0 +1,117 @@
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Quicksand:wght@500&display=swap');
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary); /* ✅ FIXED (dynamic now) */
+  font-family: 'Quicksand', sans-serif;
+  color: var(--text-primary);
+}
+
+/* HEADER */
+.app-header {
+  text-align: center;
+  padding: 50px 20px;
+  background: rgba(255, 250, 245, 0.85);
+  border-bottom: 2px solid #f9d5e0;
+}
+
+.app-header h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.optipart {
+  color: #ff9aa2;
+}
+
+.codexpart {
+  color: #0f766e;
+}
+
+.app-header .subtitle {
+  font-size: 1.5rem;
+  color: #ffb7b2;
+  margin-bottom: 20px;
+}
+
+/* NAV BUTTONS */
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* MAIN */
+.app-main {
+  flex: 1;
+  padding: 40px 20px;
+}
+
+.welcome-text {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 100px;
+  color: #6b5b95;
+}
+
+/* BUTTONS */
+.btn-primary {
+  background: linear-gradient(45deg, #ff9aa2, #ffb7b2);
+  border: none;
+  border-radius: 25px;
+  padding: 12px 25px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 154, 162, 0.4);
+}
+
+/* FOOTER */
+.app-footer {
+  text-align: center;
+  padding: 15px;
+  background: var(--bg-secondary); /* ✅ dynamic */
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  border-top: 1px solid #f9d5e0;
+}
+
+/* POPUP */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg-secondary); /* ✅ dynamic */
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff9aa2;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
