@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Editor from "./Editor";
 import "./Dashboard.css";
 
@@ -11,7 +11,7 @@ function Dashboard() {
   const email = localStorage.getItem("userEmail");
 
   // Load codes
-  const loadCodes = async () => {
+  const loadCodes = useCallback(async () => {
     if (!email) return;
 
     setLoading(true);
@@ -30,11 +30,11 @@ function Dashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [email]);
 
   useEffect(() => {
     loadCodes();
-  }, [email]);
+  }, [loadCodes]);
 
   const refreshCodes = () => {
     loadCodes();
@@ -88,7 +88,6 @@ function Dashboard() {
           💾 My Codes ({codes.length})
         </button>
 
-        {/* LOGOUT BACK. HAPPY NOW? */}
         <button
           onClick={() => {
             localStorage.removeItem("userEmail");
