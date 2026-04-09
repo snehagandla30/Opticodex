@@ -16,11 +16,13 @@ print("Hello World!")`);
   const [suggestedCode, setSuggestedCode] = useState("");
   const [showConfetti, setShowConfetti] = useState(false);
 
+  const BASE_URL = "https://opticodex-backend.onrender.com";
+
   // RUN CODE
   const runCode = async () => {
     setOutput("⏳ Running...");
     try {
-      const res = await fetch("http://localhost:5000/run_python", {
+      const res = await fetch(`${BASE_URL}/run_python`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -38,15 +40,16 @@ print("Hello World!")`);
         setOutput(data.output || "✅ Code ran successfully (no output)");
       }
 
-    } catch {
-      setOutput("🌐 Backend not running");
+    } catch (err) {
+      console.error(err);
+      setOutput("🌐 Backend not reachable");
     }
   };
 
   // ANALYZE CODE
   const analyzeCode = async () => {
     try {
-      const res = await fetch("http://localhost:5000/analyze", {
+      const res = await fetch(`${BASE_URL}/analyze`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -79,7 +82,7 @@ print("Hello World!")`);
     }
 
     try {
-      const res = await fetch("http://localhost:5000/save_code", {
+      const res = await fetch(`${BASE_URL}/save_code`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -100,7 +103,8 @@ print("Hello World!")`);
         setTitle("");
       }
 
-    } catch {
+    } catch (err) {
+      console.error(err);
       alert("Save failed");
     }
   };
@@ -147,13 +151,11 @@ print("Hello World!")`);
         )}
       </div>
 
-      {/* OUTPUT */}
       <div className="output-box">
         <h3>📤 Output</h3>
         <pre>{output}</pre>
       </div>
 
-      {/* SCORE */}
       {score !== null && (
         <div className="score-box">
           <h3>⭐ Score: {score}/10</h3>
@@ -161,7 +163,6 @@ print("Hello World!")`);
         </div>
       )}
 
-      {/* WHAT TO IMPROVE */}
       {issues.length > 0 && (
         <div className="issues-box">
           <h3>⚠️ What to improve</h3>
@@ -171,7 +172,6 @@ print("Hello World!")`);
         </div>
       )}
 
-      {/* QUICK FIXES */}
       {suggestions.length > 0 && (
         <div className="suggestions-box">
           <h3>💡 Quick fixes</h3>
@@ -181,7 +181,6 @@ print("Hello World!")`);
         </div>
       )}
 
-      {/* IMPROVED VERSION */}
       {suggestedCode && (
         <div className="suggested-code-box">
           <h3>
