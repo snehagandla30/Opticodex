@@ -13,6 +13,12 @@ codes_db = {}
 PYTHON_CMD = "python"
 
 
+# ---------------- ROOT ----------------
+@app.route("/")
+def home():
+    return "🚀 Opticodex Flask Backend Running"
+
+
 # ---------------- RUN PYTHON ----------------
 @app.route("/run_python", methods=["POST"])
 def run_python():
@@ -67,13 +73,11 @@ def fix_indentation(code):
             fixed.append("")
             continue
 
-        # reduce indent if needed
         if stripped.startswith(("return", "break", "continue")):
             indent_level = max(indent_level - 1, 0)
 
         fixed.append("    " * indent_level + stripped)
 
-        # increase indent after :
         if stripped.endswith(":"):
             indent_level += 1
 
@@ -98,8 +102,6 @@ def analyze():
             "suggestions": ["Try: print('Hello World!')"],
             "suggested_code": None
         })
-
-    # ---------------- FIX LOGIC FIRST (NO CRASH) ----------------
 
     # 1. Fix = inside if
     if re.search(r'if\s+.*=\s*.*', suggested_code) and "==" not in suggested_code:
@@ -128,7 +130,7 @@ def analyze():
         score -= 2
         suggested_code += ")" * (suggested_code.count("(") - suggested_code.count(")"))
 
-    # 4. Indentation fix (ALWAYS APPLY)
+    # 4. Indentation fix
     fixed_indent = fix_indentation(suggested_code)
     if fixed_indent != suggested_code:
         issues.append("Indentation error detected 📐")
@@ -210,7 +212,9 @@ def delete_code():
     return jsonify({"success": False})
 
 
-# ---------------- RUN APP ----------------
+# ---------------- RUN APP (FIXED FOR RENDER) ----------------
 if __name__ == "__main__":
-    print("🚀 Backend running at http://127.0.0.1:5000")
-    app.run(debug=True)
+    print("🚀 Backend starting...")
+
+    PORT = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=PORT)
